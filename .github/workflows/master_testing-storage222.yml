@@ -15,7 +15,7 @@ env:
   WEBAPP: testing-storage222
   GROUP: demo
   REGION: eastus #westus3
-  ACCOUNT: test1z1zz1z11zssss  # Does not have to exist, this will be created for you
+  ACCOUNT: testszaxzz1z11zssss  # Does not have to exist, this will be created for you
   CONTAINER: cont-tain-er
   EXPIRY_TIME: 10 minutes
 
