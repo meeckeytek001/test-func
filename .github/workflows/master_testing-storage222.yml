@@ -18,7 +18,7 @@ env:
   ACCOUNT: test1z1zz1z11zssss  # Does not have to exist, this will be created for you
   CONTAINER: cont-tain-er
   EXPIRY_TIME: 10 minutes
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -64,9 +64,6 @@ jobs:
         with:
           name: node-app
 
-      # - name: Unzip artifact for deployment
-      #   run: unzip release.zip
-
       - name: Set SAS token expiration
         run: echo "expiry=`date -u -d "$EXPIRY_TIME" '+%Y-%m-%dT%H:%MZ'`" >> $GITHUB_ENV
       
@@ -92,12 +89,4 @@ jobs:
 
             az webapp deploy --name $WEBAPP --resource-group $GROUP --type zip --src-url  $ZIP_URL --async false
 
-            az storage container delete -n $CONTAINER --account-name $ACCOUNT 
-      # - name: 'Run Azure Functions Action'
-      #   uses: Azure/functions-action@v1
-      #   id: fa
-      #   with:
-      #     app-name: 'testing-storage222'
-      #     slot-name: 'Production'
-      #     package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-          
+            az storage container delete -n $CONTAINER --account-name $ACCOUNT
