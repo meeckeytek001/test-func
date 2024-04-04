@@ -89,4 +89,4 @@ jobs:
 
             az webapp deploy --name $WEBAPP --resource-group $GROUP --type zip --src-url  $ZIP_URL --async false
 
-            az storage container delete -n $CONTAINER --account-name $ACCOUNT
+            # az storage container delete -n $CONTAINER --account-name $ACCOUNT
